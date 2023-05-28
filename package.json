@@ -1,0 +1,12 @@
+{
+	"name": "csv-graphql-handlebars",
+	"description": "A graphql server that uses CSV files for it's data store and binds queries to variables",
+	"version": "1.0.0",
+	"type": "module",
+	"main": "server.ts",
+	"repository": "git@github.com:ambidexterich/csv-graphql-handlebars.git",
+	"author": "Rich Hamburg <github@rhamburg.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {}
+}
