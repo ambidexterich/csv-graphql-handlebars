@@ -6,21 +6,18 @@ import chalk from "chalk";
 import initialize from "@/services/app.ts";
 import { mapper } from "@/utils/index.ts";
 import type { AppConfig } from "@/types/index.ts";
+import config from './source.config.json' assert { type: "json" };
 
 dotenv.config();
 
 const DEFAULT_PORT = 4000;
 const BASE_PORT = Number(process.env.DEFAULT_PORT ?? DEFAULT_PORT);
 
-const loadconfig = (): AppConfig => ({
-	templates: {},
-});
-
 const startServer = async () => {
 	portfinder.setBasePort(BASE_PORT);
 
 	const activePort = await portfinder.getPortPromise();
-	const appServer = await initialize(mapper(loadconfig()));
+	const appServer = await initialize(mapper(config));
 	const httpServer = createServer(appServer);
 
 	httpServer.listen(activePort, async () => {
