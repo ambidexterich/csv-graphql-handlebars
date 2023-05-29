@@ -1,0 +1,7 @@
+{
+	"source": "query states { abbreviation name } }",
+	"map": {
+		"label": "$source.states.abbreviation",
+		"value": "$source.states.name"
+	}
+}

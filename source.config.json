@@ -1,0 +1,8 @@
+{
+	"templates": {
+		"example": {
+			"config": "data/example.config.json",
+			"include": ["data/states.csv"]
+		}
+	}
+}
