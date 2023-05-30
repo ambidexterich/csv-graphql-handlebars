@@ -9,6 +9,8 @@ import { AppConfig } from "@/types/index.ts";
 const initialize = async (config: AppConfig): Promise<Express> => {
 	const app = express();
 	const appPath = __dirname(join(import.meta.url, ".."));
+
+	app.set('templates', config.templates);
 	app.use(express.static(join(appPath, "public")));
 
 	return router(graphql(handlebars(Promise.resolve(app), appPath)));
