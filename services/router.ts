@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { prepareQuery } from "./csv.ts";
+import { prepareQuery } from "@/utils/csv.ts";
 
 const router = async (app: Promise<Express>): Promise<Express> => {
 	const appServer = await app;

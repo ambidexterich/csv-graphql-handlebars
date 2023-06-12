@@ -4,8 +4,8 @@ import { engine } from "express-handlebars";
 import { mkdirp } from "@/utils/index.ts";
 
 const handlebars = async (
-	app: Promise<Express>,
-	path: string
+	path: string,
+	app: Promise<Express>
 ): Promise<Express> => {
 	const appServer = await app;
 	appServer.engine(

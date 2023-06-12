@@ -1,58 +1,57 @@
-abbreviation,name
-AL,Alabama
-KY,Kentucky
-OH,Ohio
-AK,Alaska
-LA,Louisiana
-OK,Oklahoma
-AZ,Arizona
-ME,Maine
-OR,Oregon
-AR,Arkansas
-MD,Maryland
-PA,Pennsylvania
-AS,American Samoa
-MA,Massachusetts
-PR,Puerto Rico
-CA,California
-MI,Michigan
-RI,Rhode Island
-CO,Colorado
-MN,Minnesota
-SC,South Carolina
-CT,Connecticut
-MS,Mississippi
-SD,South Dakota
-DE,Delaware
-MO,Missouri
-TN,Tennessee
-DC,District of Columbia
-MT,Montana
-TX,Texas
-FL,Florida
-NE,Nebraska
-TT,Trust Territories
-GA,Georgia
-NV,Nevada
-UT,Utah
-GU,Guam
-NH,New Hampshire
-VT,Vermont
-HI,Hawaii
-NJ,New Jersey
-VA,Virginia
-ID,Idaho
-NM,New Mexico
-VI,Virgin Islands
-IL,Illinois
-NY,New York
-WA,Washington
-IN,Indiana
-NC,North Carolina
-WV,West Virginia
-IA,Iowa
-ND,North Dakota
-WI,Wisconsin
-KS,Kansas
-MP,Northern Mariana Islands
-WY,Wyoming
+abbreviation,name,population
+AL,Alabama,5074296
+KY,Kentucky,4512310
+OH,Ohio,11756058
+AK,Alaska,733583
+LA,Louisiana,4590241
+OK,Oklahoma,4019800
+AZ,Arizona,7359197
+ME,Maine,1385340
+OR,Oregon,4240137
+AR,Arkansas,3045637
+MD,Maryland,6164660
+PA,Pennsylvania,12972008
+AS,American Samoa,49710
+MA,Massachusetts,6981974
+PR,Puerto Rico,3221789
+CA,California,39029342
+MI,Michigan,10034113
+RI,Rhode Island,1093734
+CO,Colorado,5839926
+MN,Minnesota,5717184
+SC,South Carolina,5282634
+CT,Connecticut,3626205
+MS,Mississippi,2940057
+SD,South Dakota,909824
+DE,Delaware,1018396
+MO,Missouri,6177957
+TN,Tennessee,7051339
+DC,District of Columbia,671803
+MT,Montana,1122867
+TX,Texas,30029572
+FL,Florida,22244823
+NE,Nebraska,1967923
+GA,Georgia,10912876
+NV,Nevada,3177772
+UT,Utah,3380800
+GU,Guam,153836
+NH,New Hampshire,1395231
+VT,Vermont,647064
+HI,Hawaii,1440196
+NJ,New Jersey,9261699
+VA,Virginia,8683619
+ID,Idaho,1939033
+NM,New Mexico,2113344
+VI,Virgin Islands,87146
+IL,Illinois,12582032
+NY,New York,19677151
+WA,Washington,7785786
+IN,Indiana,6833037
+NC,North Carolina,10698973
+WV,West Virginia,1775156
+IA,Iowa,3200517
+ND,North Dakota,779261
+WI,Wisconsin,5892539
+KS,Kansas,2937150
+MP,Northern Mariana Islands,47329
+WY,Wyoming,581381

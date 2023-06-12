@@ -1,7 +1,9 @@
 {
-	"source": "query states { abbreviation name } }",
-	"map": {
-		"label": "$source.states.abbreviation",
-		"value": "$source.states.name"
+	"example" : {
+		"source": "query states { states { abbreviation name } }",
+		"map": {
+			"label": "$source.states.abbreviation",
+			"value": "$source.states.name"
+		}
 	}
 }

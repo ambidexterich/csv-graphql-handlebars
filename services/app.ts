@@ -9,11 +9,14 @@ import { AppConfig } from "@/types/index.ts";
 const initialize = async (config: AppConfig): Promise<Express> => {
 	const app = express();
 	const appPath = __dirname(join(import.meta.url, ".."));
+	const fns = [router, handlebars.bind(null, appPath), graphql];
 
-	app.set('templates', config.templates);
+	app.set("templates", config.templates);
 	app.use(express.static(join(appPath, "public")));
 
-	return router(graphql(handlebars(Promise.resolve(app), appPath)));
+	return fns.reduce((app: Promise<Express>, fn: (a: Promise<Express>)=>Promise<Express>): Promise<Express> => {
+		return fn(app);
+	}, Promise.resolve(app));
 };
 
 export default initialize;
