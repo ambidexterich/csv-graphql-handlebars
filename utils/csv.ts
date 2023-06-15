@@ -1,44 +1,8 @@
+import type { CSVResponse, QueryArgs } from "@/types/index.ts";
 import { loader } from "@/utils/csv-loader.ts";
-
-/**
- * Argument object to apply to the resolver results
- * @typedef {Object} QueryArgs
- * @property {number} limit - The number of items to limit the results
- */
-interface QueryArgs {
-	limit: number;
-}
-
-/**
- * A generic object
- * @typedef {{Object.<string, string>}} ZippedObject
- */
-interface ZippedObject {
-	[key: string]: string;
-}
-/** @type {Array<ZippedObject>} */
-type CSVResponse = Array<ZippedObject>
-
-/**
- * Creates an new object out of a array of keys and a array of values.
- *
- * @private
- * @param {Array} props The property identifiers.
- * @param {Array} values The property values.
- * @returns {ZippedObject} Returns the new object.
- */
-const zip = (props: string[]) => {
-	const accumulator: { [key: string]: string } = {};
-	return (values: string[]): ZippedObject  => {
-		const results = values.reduce((acc: typeof accumulator, v:string, i: number) => {
-			return {
-				...acc,
-				[props[i]] : v
-			};
-		}, accumulator);
-		return results;
-	};
-};
+import { GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLString } from "graphql";
+import { zip } from "./index.ts";
+import { parse } from "node:path";
 
 /**
  * Resolver to read data from a specific CSV file
@@ -54,7 +18,39 @@ export const queryCSV = async (table: string, args: QueryArgs): Promise<CSVRespo
 	return args.limit ? results.slice(0, args.limit) : results;
 };
 
-export const processCSV = async (table: string) => {};
+export const processCSV = async (tables: string[]) => {
+	console.log(tables.reduce((acc, s) => ({
+		...acc,
+		[parse(s).name]: {
+			type: new GraphQLList(new GraphQLObjectType({
+				name: "StateCSV",
+				fields: {
+					abbreviation: { type: GraphQLString }, // GraphQLString
+					name: { type: GraphQLString }, // GraphQLString
+					population: { type: GraphQLInt } // GraphQLInt
+				}
+			}))
+		}
+	}), {}));
+	return {
+		states: {
+			type: new GraphQLList(new GraphQLObjectType({
+				name: "StateCSV",
+				fields: {
+					abbreviation: { type: GraphQLString }, // GraphQLString
+					name: { type: GraphQLString }, // GraphQLString
+					population: { type: GraphQLInt } // GraphQLInt
+				}
+			})),
+			// `args` describes the arguments that the `user` query accepts
+			args: {
+				limit: { type: GraphQLInt },
+				filter: { type: GraphQLString }
+			},
+			resolve: (_: unknown, args: QueryArgs) => queryCSV("states", args)
+		}
+	};
+};
 
 export const prepareQuery = (template: string): object => {
 	return {};

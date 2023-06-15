@@ -12,6 +12,7 @@ const initialize = async (config: AppConfig): Promise<Express> => {
 	const fns = [router, handlebars.bind(null, appPath), graphql];
 
 	app.set("templates", config.templates);
+	app.set("rootDir", appPath);
 	app.use(express.static(join(appPath, "public")));
 
 	return fns.reduce((app: Promise<Express>, fn: (a: Promise<Express>)=>Promise<Express>): Promise<Express> => {

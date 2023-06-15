@@ -1,9 +1,9 @@
-//import { loader } from "@/utils/csv-loader.ts";
+import { schemaHint } from "@/utils/csv-loader.ts";
 
-//const res = await loader("./data/states.csv");
-//const [headers, body] = res;
+const res = await schemaHint("./data/states.csv");
 
-const res = await fetch("http://localhost:4000/graphql", {
+console.log(res);
+/*const res = await fetch("http://localhost:4000/graphql", {
 	method: "POST",
 	headers: {
 		"Content-type": "application/json"
@@ -13,4 +13,4 @@ const res = await fetch("http://localhost:4000/graphql", {
 	})
 });
 const json = await res.json();
-console.log(json);
+console.log(json);*/

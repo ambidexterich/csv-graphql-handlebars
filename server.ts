@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 import portfinder from "portfinder";
 import chalk from "chalk";
 import initialize from "@/services/app.ts";
-import config from './source.config.json' assert { type: "json" };
+import config from "./source.config.json" assert { type: "json" };
 
 dotenv.config();
 

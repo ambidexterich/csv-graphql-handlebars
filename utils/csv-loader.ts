@@ -10,3 +10,8 @@ export const loader = async (file: string): Promise<string[][]> => {
 			.on("end", () => resolve(results));
 	});
 };
+
+export const schemaHint = async (file: string): Promise<string[][]> => {
+	const results: string[][] = await loader(file);
+	return results.slice(0,2);
+};
