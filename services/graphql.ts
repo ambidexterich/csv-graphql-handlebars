@@ -1,6 +1,8 @@
 import { Express } from "express";
 import { createHandler } from "graphql-http/lib/use/express";
 import { GraphQLSchema, GraphQLObjectType } from "graphql";
+import Graphiql from "graphql-playground-middleware-express";
+
 import { processCSV, queryCSV } from "@/utils/csv.ts";
 import { collect } from "@/utils/index.ts";
 import type { TemplateConfigList } from "@/types/index.ts";
@@ -22,6 +24,7 @@ const graphql = async (app: Promise<Express>): Promise<Express> => {
 
 	const handler =  createHandler({ schema: await generateSchema(rootDir, templates) });
 	appServer.use("/graphql", handler);
+	appServer.use("/playground", Graphiql.default({ endpoint: "/graphql" }));
 
 	return app;
 };

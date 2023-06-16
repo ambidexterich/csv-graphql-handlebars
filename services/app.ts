@@ -1,6 +1,6 @@
 import { join } from "path";
 import express, { Express } from "express";
-import { __dirname } from "@/utils/patch.ts";
+import { __dirname } from "@/utils/index.ts";
 import handlebars from "./handlebars.ts";
 import graphql from "./graphql.ts";
 import router from "./router.ts";

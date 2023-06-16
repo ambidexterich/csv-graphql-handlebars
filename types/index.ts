@@ -15,9 +15,11 @@ export interface AppConfig {
 /**
  * Argument object to apply to the resolver results
  * @typedef {Object} QueryArgs
+ * @property {string} filter - Filter the list base on string match
  * @property {number} limit - The number of items to limit the results
  */
 export interface QueryArgs {
+	filter: string;
 	limit: number;
 }
 
