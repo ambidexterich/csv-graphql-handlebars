@@ -1,8 +1,8 @@
-import type { CSVResponse, QueryArgs } from "@/types/index.ts";
-import { loader, schemaHint } from "@/utils/csv-loader.ts";
-import { GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLString } from "graphql";
-import { mapGraphQLType, zip } from "@/utils/index.ts";
-import { parse } from "node:path";
+import { parse } from 'node:path';
+import type { CSVResponse, QueryArgs } from '@/types/index.ts';
+import { loader, schemaHint } from '@/utils/csv-loader.ts';
+import { GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql';
+import { toGraphQLType, zip } from '@/utils/index.ts';
 
 /**
  * Generate the field schema for a given file
@@ -13,7 +13,7 @@ const buildHeaderTypes = async (file: string) => {
 	const [headers, firstRow] = await schemaHint(file);
 	return headers.reduce((fields, header, idx) => ({
 		...fields,
-		[header]: { type: mapGraphQLType(firstRow[idx]) }
+		[header]: { type: toGraphQLType(firstRow[idx]) }
 	}), {});
 };
 
@@ -31,6 +31,11 @@ export const queryCSV = async (file: string, args: QueryArgs): Promise<CSVRespon
 	return args.limit ? results.slice(0, args.limit) : results;
 };
 
+/**
+ * Generate graphql schema from config file
+ * @param {Array<string>} tables Array of absolute paths to CSV files
+ * @returns
+ */
 export const processCSV = async (tables: string[]) => {
 	const schema = tables.reduce(async (acc, file: string) => {
 		const tableName = parse(file).name;
@@ -52,7 +57,8 @@ export const processCSV = async (tables: string[]) => {
 	return schema;
 };
 
-export const prepareQuery = (template: string): object => {
+export const prepareQuery = async (template: string): Promise<unknown> => {
 	console.log(template);
+	//http.get('/graphql',);
 	return {};
 };
