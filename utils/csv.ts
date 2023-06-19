@@ -56,9 +56,3 @@ export const processCSV = async (tables: string[]) => {
 	}, {});
 	return schema;
 };
-
-export const prepareQuery = async (template: string): Promise<unknown> => {
-	console.log(template);
-	//http.get('/graphql',);
-	return {};
-};

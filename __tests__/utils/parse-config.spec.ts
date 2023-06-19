@@ -28,7 +28,7 @@ describe('utils#parseConfig', () => {
 		readFile.mockResolvedValueOnce(mockConfig);
 	
 		const results = await parseConfig(pathToConfig);
-		expect(results).toHaveProperty('source');
+		expect(results).toHaveProperty('query');
 		expect(results).toHaveProperty('map');
 	});
 });

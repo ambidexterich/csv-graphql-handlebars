@@ -1,9 +1,7 @@
 {
-	"example" : {
-		"source": "query states { states { abbreviation name } }",
-		"map": {
-			"label": "$source.states.abbreviation",
-			"value": "$source.states.name"
-		}
+	"source": "query states { states(limit: 1) { name, population, area, abbreviation } }",
+	"map": {
+		"label": "$source.states.abbreviation",
+		"value": "$source.states.name"
 	}
 }

@@ -1,4 +1,5 @@
-type RelativePath = string;
+export type AbsolutePath = string;
+export type RelativePath = string;
 export type CSVPath = string;
 
 export type TemplateConfigOptions = {
@@ -8,7 +9,7 @@ export type TemplateConfigOptions = {
 export type TemplateConfigList = {
 	[key: string]: TemplateConfigOptions
 }
-export interface AppConfig {
+export type AppConfig = {
 	templates: TemplateConfigList;
 }
 
@@ -18,7 +19,7 @@ export interface AppConfig {
  * @property {string} filter - Filter the list base on string match
  * @property {number} limit - The number of items to limit the results
  */
-export interface QueryArgs {
+export type QueryArgs = {
 	filter: string;
 	limit: number;
 }
@@ -27,7 +28,7 @@ export interface QueryArgs {
  * A generic object
  * @typedef {{Object.<string, string>}} ZippedObject
  */
-export interface ZippedObject {
+export type ZippedObject = {
 	[key: string]: string;
 }
 /** @type {Array<ZippedObject>} */

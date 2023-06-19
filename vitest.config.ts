@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
 	test: {
@@ -36,7 +36,7 @@ export default defineConfig({
 			//customProviderModule: 'my-custom-coverage-provider',
 
 			// Indicates which provider should be used to instrument code for coverage
-			provider: "v8", // or 'instanbul'
+			provider: 'v8', // or 'instanbul'
 
 			// A list of reporter names that Jest uses when writing coverage reports
 			// reporter: [
@@ -81,13 +81,13 @@ export default defineConfig({
 
 		// Will call .mockReset() on all spies before each test. This will clear mock history and reset its 
 		// implementation to an empty function (will return undefined).
-		//mockReset: false,
+		// mockReset: false,
 
-		reporters: "verbose",
+		reporters: 'verbose',
 
 		// Will call .mockRestore() on all spies before each test. This will clear mock history and reset its 
 		// implementation to the original one.
-		restoreMocks: true,
+		// restoreMocks: false,
 
 		// Path to a custom test runner. This is an advanced feature and should be used with custom library runners
 		// Default: node, when running tests, or benchmark, when running benchmarks

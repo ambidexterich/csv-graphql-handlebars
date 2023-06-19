@@ -1,10 +1,10 @@
-import { createServer } from "node:http";
-import os from "node:os";
-import * as dotenv from "dotenv";
-import portfinder from "portfinder";
-import chalk from "chalk";
-import initialize from "@/services/app.ts";
-import config from "./source.config.json" assert { type: "json" };
+import { createServer } from 'node:http';
+import os from 'node:os';
+import * as dotenv from 'dotenv';
+import portfinder from 'portfinder';
+import chalk from 'chalk';
+import initialize from '@/services/app.ts';
+import config from './source.config.json' assert { type: 'json' };
 
 dotenv.config();
 
@@ -18,12 +18,14 @@ const startServer = async () => {
 	const appServer = await initialize(config);
 	const httpServer = createServer(appServer);
 
+	appServer.set('port', activePort);
+
 	httpServer.listen(activePort, async () => {
 		const url = chalk.blue.underline(
 			`http://${os.hostname()}:${activePort}`
 		);
 		console.info(`Running on ${url}`);
-		console.info(chalk.green("Press Ctrl+C to quit"));
+		console.info(chalk.green('Press Ctrl+C to quit'));
 	});
 };
 
