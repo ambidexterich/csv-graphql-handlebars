@@ -33,3 +33,12 @@ export type ZippedObject = {
 }
 /** @type {Array<ZippedObject>} */
 export type CSVResponse = Array<ZippedObject>
+
+export type CSVColumnData = string | number | boolean;
+export type CSVRowData = { [column: string]: CSVColumnData }
+export type CSVTableData = {
+	[table: string]: Array<CSVRowData>;
+}
+export type  GraphQLCSVResponse = {
+	data: CSVTableData
+}
